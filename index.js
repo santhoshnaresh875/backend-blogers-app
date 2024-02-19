@@ -93,6 +93,10 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
+app.get('/',(req,resp)=>{
+  resp.send("<h1>Checking Render !</h1>")
+})
+
 
 //error middleware
 app.use(errorHandler);
