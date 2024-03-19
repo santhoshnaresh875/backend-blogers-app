@@ -31,16 +31,18 @@ const postRoute = require('./routes/postRoute');
 
 
 //database connection
-mongoose.connect(process.env.DATABASE, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-})
-  .then(() => console.log("DB connected"))
-  .catch((err) => console.log(err));
+// mongoose.connect(process.env.DATABASE, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true,
+//   useFindAndModify: false
+// })
+//   .then(() => console.log("DB connected"))
+//   .catch((err) => console.log(err));
+mongoose.connect(process.env.DATABASE)
 
-
+.then(()=>console.log('DB connected'))
+.catch((error)=>console.log('error',error))
 //MIDDLEWARE
 app.use(morgan('dev'));
 app.use(bodyParser.json({ limit: "5mb" }));
